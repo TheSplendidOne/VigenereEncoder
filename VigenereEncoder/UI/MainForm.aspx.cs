@@ -24,6 +24,7 @@ namespace VigenereEncoder
             if(ImportManager.Import(response, out String text, out String errorMessage) &&
                ValidateKeyPattern(response.KeyPattern, out String keyPattern, out errorMessage))
             {
+                Input.Value = text;
                 String handled = handler.Invoke(text, keyPattern);
                 Output.Value = handled;
                 Message.InnerText = ExportManager.Export(response, handled, out errorMessage)
