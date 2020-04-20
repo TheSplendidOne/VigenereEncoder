@@ -22,7 +22,7 @@
                 <option value="txt">.txt файл</option>
                 <option value="docx">.docx файл</option>
             </select>
-            <asp:FileUpload runat="server" class="text-margin2" id="InputFile" name="InputFile"/>
+            <asp:FileUpload runat="server" class="fileupload-margin" id="InputFile" name="InputFile"/>
         </div>
         <div class="default-block-margin">
             <label>Вывод:</label>
@@ -31,7 +31,7 @@
                 <option value="txt">.txt файл</option>
                 <option value="docx">.docx файл</option>
             </select>
-            <input type="text" runat="server" class="text-margin3" id="OutputFilePath" name="OutputFilePath" placeholder="Путь к файлу"/>
+            <input type="text" runat="server" class="text-margin2" id="OutputFilePath" name="OutputFilePath" placeholder="Путь к файлу"/>
         </div>
         <div class="default-block-margin center-text">
             <label runat="server" id="Message" name="Message"></label>
