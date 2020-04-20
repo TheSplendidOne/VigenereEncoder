@@ -1,11 +1,12 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Web.ModelBinding;
 using System.Web.UI;
 
 namespace VigenereEncoder
 {
-    public partial class TestForm : Page
+    public partial class MainForm : Page
     {
         private String DefaultKeyPattern => KeyPattern.Attributes["placeholder"];
 
@@ -39,6 +40,9 @@ namespace VigenereEncoder
         {
             MainFormResponse response = new MainFormResponse();
             TryUpdateModel(response, new FormValueProvider(ModelBindingExecutionContext));
+            ExporterType type = (ExporterType)Enum.Parse(typeof(ExporterType), response.InputType, true);
+            if (type == ExporterType.Txt || type == ExporterType.Docx)
+                response.InputFileStream = new Lazy<Stream>(() => InputFile.PostedFile.InputStream);
             return response;
         }
 

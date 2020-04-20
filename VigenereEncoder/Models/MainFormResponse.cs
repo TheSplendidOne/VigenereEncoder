@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace VigenereEncoder
 {
@@ -8,7 +9,7 @@ namespace VigenereEncoder
 
         public String InputType { get; set; }
 
-        public String InputFilePath { get; set; }
+        public Lazy<Stream> InputFileStream { get; set; }
 
         public String OutputType { get; set; }
 

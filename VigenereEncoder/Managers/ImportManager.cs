@@ -13,13 +13,13 @@ namespace VigenereEncoder
 
         private static readonly Importer TxtImporter = (response) =>
         {
-            using (StreamReader reader = new StreamReader(File.OpenRead(response.InputFilePath), Encoding.Default))
+            using (StreamReader reader = new StreamReader(response.InputFileStream.Value, Encoding.Default))
             {
                 return reader.ReadToEnd();
             }
         };
 
-        private static readonly Importer DocxImporter = (response) => DocX.Load(response.InputFilePath).Text;
+        private static readonly Importer DocxImporter = (response) => DocX.Load(response.InputFileStream.Value).Text;
 
         public static Boolean Import(MainFormResponse response, out String text, out String errorMessage)
         {

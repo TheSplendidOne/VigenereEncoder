@@ -11,7 +11,7 @@ namespace VigenereEncoder
 {
 
 
-    public partial class TestForm
+    public partial class MainForm
     {
 
         /// <summary>
@@ -33,13 +33,13 @@ namespace VigenereEncoder
         protected global::System.Web.UI.HtmlControls.HtmlSelect InputType;
 
         /// <summary>
-        /// InputFilePath элемент управления.
+        /// InputFile элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText InputFilePath;
+        protected global::System.Web.UI.WebControls.FileUpload InputFile;
 
         /// <summary>
         /// OutputType элемент управления.

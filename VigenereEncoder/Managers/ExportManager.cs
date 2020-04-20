@@ -9,7 +9,7 @@ namespace VigenereEncoder
     {
         private delegate void Exporter(MainFormResponse response, String text);
 
-        // форма самостоятельно выводит текст на экран, OnScreenExporter необходим для унификации экспорта
+        // MainForm самостоятельно выводит текст на экран, OnScreenExporter необходим для унификации экспорта
         private static readonly Exporter OnScreenExporter = (response, text) => { };
 
         private static readonly Exporter TxtExporter = (response, text) =>

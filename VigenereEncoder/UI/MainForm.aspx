@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MainForm.aspx.cs" Inherits="VigenereEncoder.TestForm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MainForm.aspx.cs" Inherits="VigenereEncoder.MainForm" %>
 
 <!DOCTYPE html>
 
@@ -22,7 +22,7 @@
                 <option value="txt">.txt файл</option>
                 <option value="docx">.docx файл</option>
             </select>
-            <input type="text" runat="server" class="text-margin2" id="InputFilePath" name="InputFilePath" placeholder="Путь к файлу"/>
+            <asp:FileUpload runat="server" class="text-margin2" id="InputFile" name="InputFile"/>
         </div>
         <div class="default-block-margin">
             <label>Вывод:</label>
