@@ -42,7 +42,7 @@ namespace VigenereEncoder
             TryUpdateModel(response, new FormValueProvider(ModelBindingExecutionContext));
             ExporterType type = (ExporterType)Enum.Parse(typeof(ExporterType), response.InputType, true);
             if (type == ExporterType.Txt || type == ExporterType.Docx)
-                response.InputFileStream = new Lazy<Stream>(() => InputFile.FileContent);
+                response.InputFileStream = InputFile.FileContent;
             return response;
         }
 

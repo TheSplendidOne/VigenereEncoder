@@ -9,7 +9,7 @@ namespace VigenereEncoder
 
         public String InputType { get; set; }
 
-        public Lazy<Stream> InputFileStream { get; set; }
+        public Stream InputFileStream { get; set; }
 
         public String OutputType { get; set; }
 
