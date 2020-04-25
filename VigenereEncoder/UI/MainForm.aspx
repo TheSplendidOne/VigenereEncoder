@@ -18,18 +18,18 @@
         <div class="default-block-margin">
             <label>Ввод:</label>
             <select runat="server" name="InputType" id="InputType" class="select-margin1">
-                <option value="userInput">С клавиатуры</option>
-                <option value="txt">.txt файл</option>
-                <option value="docx">.docx файл</option>
+                <option value="UserInput">С клавиатуры</option>
+                <option value="Txt">.txt файл</option>
+                <option value="Docx">.docx файл</option>
             </select>
             <asp:FileUpload runat="server" class="fileupload-margin" id="InputFile" name="InputFile"/>
         </div>
         <div class="default-block-margin">
             <label>Вывод:</label>
             <select runat="server" name="OutputType" id="OutputType" class="select-margin2">
-                <option value="onScreen">На экран</option>
-                <option value="txt">.txt файл</option>
-                <option value="docx">.docx файл</option>
+                <option value="OnScreen">На экран</option>
+                <option value="Txt">.txt файл</option>
+                <option value="Docx">.docx файл</option>
             </select>
             <input type="text" runat="server" class="text-margin2" id="OutputFilePath" name="OutputFilePath" placeholder="Путь к файлу"/>
         </div>

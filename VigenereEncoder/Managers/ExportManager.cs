@@ -9,12 +9,14 @@ namespace VigenereEncoder
     {
         private delegate void Exporter(MainFormResponse response, String text);
 
+        private static readonly Encoding Encoding = Encoding.Default;
+
         // MainForm самостоятельно выводит текст на экран, OnScreenExporter необходим для унификации экспорта
         private static readonly Exporter OnScreenExporter = (response, text) => { };
 
         private static readonly Exporter TxtExporter = (response, text) =>
         {
-            using(StreamWriter writer = new StreamWriter(new FileStream(response.OutputFilePath, FileMode.Create), Encoding.Default))
+            using(StreamWriter writer = new StreamWriter(new FileStream(response.OutputFilePath, FileMode.Create), Encoding))
             {
                 writer.Write(text);
             }
@@ -29,10 +31,16 @@ namespace VigenereEncoder
 
         public static Boolean Export(MainFormResponse response, String text, out String errorMessage)
         {
+            const String defaultEmptyPathErrorMessage = "Путь сохранения не указан.";
             errorMessage = null;
-            if(Enum.TryParse(response.OutputType, true, out ExporterType type))
+            if(Enum.TryParse(response.OutputType, out ExporterType type))
                 try
                 {
+                    if (type != ExporterType.OnScreen && String.IsNullOrEmpty(response.OutputFilePath))
+                    {
+                        errorMessage = defaultEmptyPathErrorMessage;
+                        return false;
+                    }
                     GetImporter(type).Invoke(response, text);
                     return true;
                 }

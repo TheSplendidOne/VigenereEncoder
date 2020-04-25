@@ -23,15 +23,21 @@ namespace VigenereEncoder
 
         public static Boolean Import(MainFormResponse response, out String text, out String errorMessage)
         {
+            const String defaultEmptyTextErrorMessage = "Текст не может быть пустой строкой.";
+            const String defaultNotSelectedFileErrorMessage = "Файл не выбран.";
             text = null;
             errorMessage = null;
-            if (Enum.TryParse(response.InputType, true, out ImporterType type))
+            if (Enum.TryParse(response.InputType, out ImporterType type))
                 try
                 {
                     text = GetImporter(type).Invoke(response);
                     if (!String.IsNullOrEmpty(text)) return true;
-                    errorMessage = "Текст не может быть пустой строкой.";
+                    errorMessage = defaultEmptyTextErrorMessage;
                     return false;
+                }
+                catch (FileFormatException)
+                {
+                    errorMessage = defaultNotSelectedFileErrorMessage;
                 }
                 catch (Exception e)
                 {

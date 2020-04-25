@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
 using System.Web.ModelBinding;
 using System.Web.UI;
@@ -40,8 +39,8 @@ namespace VigenereEncoder
         {
             MainFormResponse response = new MainFormResponse();
             TryUpdateModel(response, new FormValueProvider(ModelBindingExecutionContext));
-            ExporterType type = (ExporterType)Enum.Parse(typeof(ExporterType), response.InputType, true);
-            if (type == ExporterType.Txt || type == ExporterType.Docx)
+            ImporterType type = (ImporterType)Enum.Parse(typeof(ImporterType), response.InputType);
+            if (type == ImporterType.Txt || type == ImporterType.Docx)
                 response.InputFileStream = InputFile.FileContent;
             return response;
         }
@@ -66,7 +65,7 @@ namespace VigenereEncoder
 
         private static String GetSuccessfulConversionMessage(MainFormResponse response)
         {
-            ExporterType type = (ExporterType)Enum.Parse(typeof(ExporterType), response.OutputType, true);
+            ExporterType type = (ExporterType)Enum.Parse(typeof(ExporterType), response.OutputType);
             if (type == ExporterType.Txt || type == ExporterType.Docx)
                 return $"Текст успешно преобразован и сохранён в {response.OutputFilePath}.";
             return "Текст успешно преобразован.";

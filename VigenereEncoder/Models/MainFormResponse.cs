@@ -16,7 +16,5 @@ namespace VigenereEncoder
         public String OutputFilePath { get; set; }
 
         public String Input { get; set; }
-
-        public String Output { get; set; }
     }
 }
