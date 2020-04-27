@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -10,8 +9,6 @@ namespace VigenereEncoder
         private delegate Char VigenereConverter(Char inputChar, Char keyChar);
 
         public static readonly String Alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
-
-        public static readonly CultureInfo Culture = CultureInfo.GetCultureInfo("ru");
 
         private static readonly VigenereConverter EncodeConverter =
             (inputChar, keyChar) => Alphabet[(Alphabet.IndexOf(inputChar) + Alphabet.IndexOf(keyChar)) % Alphabet.Length];
@@ -43,7 +40,7 @@ namespace VigenereEncoder
             StringBuilder builder = new StringBuilder(text.Length);
             foreach (Char inputChar in text)
             {
-                Char lowerInputChar = Char.ToLower(inputChar, Culture);
+                Char lowerInputChar = Char.ToLower(inputChar, GlobalConstants.Culture);
                 builder.Append(Alphabet.Contains(lowerInputChar) ? converter.Invoke(lowerInputChar, source.Next) : inputChar);
             }
             return builder.ToString();

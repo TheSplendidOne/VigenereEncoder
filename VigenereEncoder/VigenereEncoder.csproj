@@ -81,6 +81,7 @@
   <ItemGroup>
     <Compile Include="Models\ExporterType.cs" />
     <Compile Include="Managers\ExportManager.cs" />
+    <Compile Include="Models\GlobalConstants.cs" />
     <Compile Include="Models\ImporterType.cs" />
     <Compile Include="Managers\ImportManager.cs" />
     <Compile Include="Core\KeyCharSource.cs" />

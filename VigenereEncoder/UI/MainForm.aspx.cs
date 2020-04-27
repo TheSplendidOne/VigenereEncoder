@@ -54,7 +54,7 @@ namespace VigenereEncoder
                 validatedKeyPattern = DefaultKeyPattern;
                 return true;
             }
-            if (!keyPattern.ToLower().Except(VigenereHandler.Alphabet).Any())
+            if (!keyPattern.ToLower(GlobalConstants.Culture).Except(VigenereHandler.Alphabet).Any())
             {
                 validatedKeyPattern = keyPattern;
                 return true;

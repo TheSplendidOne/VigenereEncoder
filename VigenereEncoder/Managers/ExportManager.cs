@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 using Xceed.Words.NET;
 
 namespace VigenereEncoder
@@ -9,14 +8,12 @@ namespace VigenereEncoder
     {
         private delegate void Exporter(MainFormResponse response, String text);
 
-        private static readonly Encoding Encoding = Encoding.Default;
-
         // MainForm самостоятельно выводит текст на экран, OnScreenExporter необходим для унификации экспорта
         private static readonly Exporter OnScreenExporter = (response, text) => { };
 
         private static readonly Exporter TxtExporter = (response, text) =>
         {
-            using(StreamWriter writer = new StreamWriter(new FileStream(response.OutputFilePath, FileMode.Create), Encoding))
+            using(StreamWriter writer = new StreamWriter(new FileStream(response.OutputFilePath, FileMode.Create), GlobalConstants.Encoding))
             {
                 writer.Write(text);
             }

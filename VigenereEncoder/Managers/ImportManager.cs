@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 using Xceed.Words.NET;
 
 namespace VigenereEncoder
@@ -13,7 +12,7 @@ namespace VigenereEncoder
 
         private static readonly Importer TxtImporter = (response) =>
         {
-            using (StreamReader reader = new StreamReader(response.InputFileStream, Encoding.Default))
+            using (StreamReader reader = new StreamReader(response.InputFileStream, GlobalConstants.Encoding))
             {
                 return reader.ReadToEnd();
             }

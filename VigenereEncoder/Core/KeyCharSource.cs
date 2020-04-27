@@ -19,7 +19,7 @@ namespace VigenereEncoder
         public KeyCharSource(String keyPattern)
         {
             Validate(keyPattern);
-            _enumerator = GetInfinityCycledKey(keyPattern.ToLower(VigenereHandler.Culture)).GetEnumerator();
+            _enumerator = GetInfinityCycledKey(keyPattern.ToLower(GlobalConstants.Culture)).GetEnumerator();
         }
 
         private static void Validate(String keyPattern)
