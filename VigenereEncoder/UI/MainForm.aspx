@@ -31,7 +31,7 @@
                 <option value="Txt">.txt файл</option>
                 <option value="Docx">.docx файл</option>
             </select>
-            <input type="text" runat="server" class="text-margin2" id="OutputFilePath" name="OutputFilePath" placeholder="Путь к файлу"/>
+            <input type="text" runat="server" class="text-margin2" id="OutputFilePath" name="OutputFilePath" placeholder="Путь к файлу (с расширением)"/>
         </div>
         <div class="default-block-margin center-text">
             <label runat="server" id="Message" name="Message"></label>
